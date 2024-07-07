@@ -1,5 +1,4 @@
 describe('Проверка адаптивного отображения домашней страницы', () => {
-
     it('450 x 900', async ({ browser }) => {
         await browser.setWindowSize(450, 900);
         await browser.url('http://localhost:3000/hw/store');
@@ -7,7 +6,7 @@ describe('Проверка адаптивного отображения дом�
         const home = await browser.$('.Home');
         expect(await home.isDisplayed()).toBe(true);
 
-        await home.assertView('plain', {ignoreDiffPixelCount : '5%'})
+        await home.assertView('plain', { ignoreDiffPixelCount: '5%' });
     });
 
     it('700 x 1000', async ({ browser }) => {
@@ -17,8 +16,7 @@ describe('Проверка адаптивного отображения дом�
         const home = await browser.$('.Home');
         expect(await home.isDisplayed()).toBe(true);
 
-        await home.assertView('plain', {ignoreDiffPixelCount : '5%'})
-
+        await home.assertView('plain', { ignoreDiffPixelCount: '5%' });
     });
 
     it('1200 x 900', async ({ browser }) => {
@@ -28,11 +26,9 @@ describe('Проверка адаптивного отображения дом�
         const home = await browser.$('.Home');
         expect(await home.isDisplayed()).toBe(true);
 
-        await home.assertView('plain', {ignoreDiffPixelCount : '5%'})
+        await home.assertView('plain', { ignoreDiffPixelCount: '5%' });
     });
-
 });
-
 
 describe('Проверка адаптивности страницы каталога', () => {
     it('450 x 900', async ({ browser }) => {
@@ -42,7 +38,7 @@ describe('Проверка адаптивности страницы катал�
         const catalog = await browser.$('.Catalog');
         expect(await catalog.isDisplayed()).toBe(true);
 
-        await catalog.assertView('plain')
+        await catalog.assertView('plain');
     });
 
     it('700 x 1000', async ({ browser }) => {
@@ -52,7 +48,7 @@ describe('Проверка адаптивности страницы катал�
         const catalog = await browser.$('.Catalog');
         expect(await catalog.isDisplayed()).toBe(true);
 
-        await catalog.assertView('plain')
+        await catalog.assertView('plain');
     });
 
     it('1200 x 900', async ({ browser }) => {
@@ -62,12 +58,9 @@ describe('Проверка адаптивности страницы катал�
         const catalog = await browser.$('.Catalog');
         expect(await catalog.isDisplayed()).toBe(true);
 
-        await catalog.assertView('plain')
+        await catalog.assertView('plain');
     });
-
 });
-
-
 
 describe('Проверка адаптивности страницы доставки', () => {
     it('450 x 900', async ({ browser }) => {
@@ -77,7 +70,7 @@ describe('Проверка адаптивности страницы доста�
         const delivery = await browser.$('.Delivery');
         expect(await delivery.isDisplayed()).toBe(true);
 
-        await delivery.assertView('plain')
+        await delivery.assertView('plain');
     });
 
     it('700 x 1000', async ({ browser }) => {
@@ -87,7 +80,7 @@ describe('Проверка адаптивности страницы доста�
         const delivery = await browser.$('.Delivery');
         expect(await delivery.isDisplayed()).toBe(true);
 
-        await delivery.assertView('plain')
+        await delivery.assertView('plain');
     });
 
     it('1200 x 900', async ({ browser }) => {
@@ -97,11 +90,9 @@ describe('Проверка адаптивности страницы доста�
         const delivery = await browser.$('.Delivery');
         expect(await delivery.isDisplayed()).toBe(true);
 
-        await delivery.assertView('plain')
+        await delivery.assertView('plain');
     });
-
 });
-
 
 describe('Проверка адаптивности страницы контактов', () => {
     it('450 x 900', async ({ browser }) => {
@@ -111,7 +102,7 @@ describe('Проверка адаптивности страницы конта�
         const contacts = await browser.$('.Contacts');
         expect(await contacts.isDisplayed()).toBe(true);
 
-        await contacts.assertView('plain')
+        await contacts.assertView('plain');
     });
 
     it('700 x 1000', async ({ browser }) => {
@@ -121,21 +112,21 @@ describe('Проверка адаптивности страницы конта�
         const contacts = await browser.$('.Contacts');
         expect(await contacts.isDisplayed()).toBe(true);
 
-        await contacts.assertView('plain')
+        await contacts.assertView('plain');
     });
 
     it('1200 x 900', async ({ browser }) => {
-        await browser.setWindowSize(1200, 900); 
+        await browser.setWindowSize(1200, 900);
         await browser.url('http://localhost:3000/hw/store/contacts');
 
         const contacts = await browser.$('.Contacts');
         expect(await contacts.isDisplayed()).toBe(true);
 
-        await contacts.assertView('plain')
+        await contacts.assertView('plain');
     });
 });
 
-describe('Проверка адаптивности навигационного меню', function() {
+describe('Проверка адаптивности навигационного меню', function () {
     it('Меню скрывается за гамбургер на ширине меньше 576', async ({ browser }) => {
         await browser.setWindowSize(450, 900);
         await browser.url('http://localhost:3000/hw/store');
@@ -155,8 +146,7 @@ describe('Проверка адаптивности навигационного
         expect(await navMenu.isDisplayed()).toBe(false);
     });
 
-
-    it('При выборе элемента из меню гамбургера, оно закрывается', async ({browser}) => {
+    it('При выборе элемента из меню гамбургера, оно закрывается', async ({ browser }) => {
         await browser.setWindowSize(450, 900);
         await browser.url('http://localhost:3000/hw/store');
 
@@ -165,9 +155,9 @@ describe('Проверка адаптивности навигационного
 
         const navMenu = await browser.$('.navbar-nav');
 
-        const menuItem = await browser.$(".nav-link");
+        const menuItem = await browser.$('.nav-link');
         await menuItem.click();
 
         expect(await navMenu.isDisplayed()).toBe(false);
     });
-})
+});
